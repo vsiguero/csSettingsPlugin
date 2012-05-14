@@ -11,7 +11,7 @@ class csSettingAdminForm extends csSettingForm
 {
   public function configure()
   { 
-    $this->widgetSchema['type'] = new sfWidgetFormSelectRadio(array(
+    $this->widgetSchema['type'] = new sfWidgetFormSelect(array(
                                        'choices' => sfConfig::get('app_csSettingsPlugin_types'),
                                        ));
     
@@ -55,7 +55,7 @@ class csSettingAdminForm extends csSettingForm
         'widget_options'  => 'Options',
       ));
       
-    $this->widgetSchema->setLabels(array(
+    $this->widgetSchema->setHelps(array(
         'slug'            => 'This is used in your code to pull the value for this setting.  Use csSettings::get($handle);',
         'widget_options'  => $helpStr,
         'setting_group'   => 'Organize your settings into groups',
