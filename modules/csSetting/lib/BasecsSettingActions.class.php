@@ -30,7 +30,7 @@ class BasecsSettingActions extends AutocsSettingActions
         foreach($this->form->getValues() as $slug => $value)
         {
           $setting = Doctrine::getTable('csSetting')->findOneBySlug($slug);
-          if ($setting) 
+          if ($setting && $setting->getType() != 'upload') 
           {
             $setting->setValue($value);
             $setting->save();
